@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'cbApp.apps.CbAppConfig',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -47,7 +50,16 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
+'''CORS_ORIGIN_WHITELIST = (
+    'http://localhost:8081',
+)'''
+
+# CORS_ORIGIN_WHITELIST = ('http://localhost:8081')
 
 ROOT_URLCONF = 'diploma.urls'
 
@@ -75,8 +87,12 @@ WSGI_APPLICATION = 'diploma.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Clothing_brand',
+        'USER': 'root',
+        'PASSWORD': 'qwerty12345Q',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
     }
 }
 

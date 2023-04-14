@@ -10,5 +10,5 @@ def getALLProducts(request):
     products = cb_models.Products.objects.all()
     srlz = serializer.ProductSerializer(products, many=True)
     return Response(srlz.data)
-
+    #return Response()
 # Create your views here.

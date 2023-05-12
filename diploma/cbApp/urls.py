@@ -1,5 +1,12 @@
 from cbApp import views
-from django.urls import path
+from django.urls import path, re_path
+
 urlpatterns = [
-    path('ALLProducts/', views.getALLProducts)
+    path('ALLProducts/', views.getALLProducts),
+    path('Products/create', views.add_product),
+    re_path(r'Product/$', views.get_Product_by_id),
+    path('Products/update', views.update_Product_data),
+    path('order/calculate_material', views.calculate_material),
+    path('rostovka/create',views.add_rostovka),
+    path('material/create',views.add_material)
 ]
